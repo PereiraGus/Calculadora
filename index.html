@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="iptDisplay" type="text" value="0">
+    <br>
+    <button onclick="addNum(9)">9</button>
+    <button onclick="addNum(8)">8</button>
+    <button onclick="addNum(7)">7</button>
+    <button onclick="realizeOp('+')">+</button>
+    <br>
+    <button onclick="addNum(6)">6</button>
+    <button onclick="addNum(5)">5</button>
+    <button onclick="addNum(4)">4</button>
+    <button onclick="realizeOp('-')">-</button>
+    <br>
+    <button onclick="addNum(3)">3</button>
+    <button onclick="addNum(2)">2</button>
+    <button onclick="addNum(1)">1</button>
+    <button onclick="realizeOp('*')">×</button>
+    <br>
+    <button onclick="addNum(0)">0</button>
+    <button onclick="clear()">C</button>
+    <button onclick="finish()">=</button>
+    <button onclick="realizeOp('/')">÷</button>
+</body>
+</html>
+<script>
+    var firstOrSecond = false;
+    var fNum = '';
+    var sNum = '';
+    var operation = '';
+    var result = 0;
+    function addNum(num){
+        if(firstOrSecond == false){
+            fNum += num;
+            iptDisplay.value = fNum;
+        }
+        else{
+            sNum += num;
+            iptDisplay.value = sNum;
+        }
+    }
+    function realizeOp(operator){
+        fNum = iptDisplay.value;
+        operation = operator;
+        iptDisplay.value = '';
+        firstOrSecond = true;
+    }
+    function finish(){
+        sNum = iptDisplay.value;
+        switch(operation){
+            case '+':
+                result = Number(fNum)+Number(sNum);
+                break;
+            case '-':
+                result = Number(fNum)-Number(sNum);
+                break;
+            case '*':
+                result = Number(fNum)*Number(sNum);
+                break;
+            case '/':
+                result = Number(fNum)/Number(sNum);
+                break;
+            default:
+                clear();
+                break;
+        }
+        fNum = result;
+        sNum = '0';
+        firstOrSecond = true;
+        iptDisplay.value = toString(result);
+    }
+    function clear(){
+        firstOrSecond = false;
+        fNum = '';
+        sNum = '';
+        operation = '';
+        result = 0;
+        iptDisplay.value='';
+    }
+
+    function dev(){
+        console.log("Primeiro número: "+fNum);
+        console.log("Segundo número: "+sNum);
+        console.log("Qual número está sendo selecionado (f=1º,t=2º): "+firstOrSecond)
+        console.log("Operação sendo realizada: "+operation);
+        console.log("Resultado: "+result);
+    }
+</script>
