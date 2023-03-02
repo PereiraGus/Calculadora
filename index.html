@@ -13,6 +13,7 @@
     <button onclick="addNum(8)">8</button>
     <button onclick="addNum(7)">7</button>
     <button onclick="realizeOp('+')">+</button>
+    <button onclick="finish('rad')">√</button>
     <br>
     <button onclick="addNum(6)">6</button>
     <button onclick="addNum(5)">5</button>
@@ -25,7 +26,7 @@
     <button onclick="realizeOp('*')">×</button>
     <br>
     <button onclick="addNum(0)">0</button>
-    <button onclick="clear()">C</button>
+    <button onclick="clearValues()">C</button>
     <button onclick="finish()">=</button>
     <button onclick="realizeOp('/')">÷</button>
 </body>
@@ -53,7 +54,6 @@
         firstOrSecond = true;
     }
     function finish(){
-        sNum = iptDisplay.value;
         switch(operation){
             case '+':
                 result = Number(fNum)+Number(sNum);
@@ -68,21 +68,20 @@
                 result = Number(fNum)/Number(sNum);
                 break;
             default:
-                clear();
+                clearValues();
                 break;
         }
         fNum = result;
-        sNum = '0';
         firstOrSecond = true;
-        iptDisplay.value = toString(result);
+        iptDisplay.value = result;
     }
-    function clear(){
+    function clearValues(){
         firstOrSecond = false;
         fNum = '';
         sNum = '';
         operation = '';
         result = 0;
-        iptDisplay.value='';
+        iptDisplay.value=0;
     }
 
     function dev(){
