@@ -60,6 +60,8 @@
     var sNum = '';
     var operation = '';
     var result = 0;
+    var copySNum = '';
+    var copyOperation = '';
     function addNum(num){
         if(firstOrSecond == false){
             fNum += num;
@@ -140,4 +142,19 @@
             calculator.className = ('conway');
         }
     }
+
+    document.addEventListener("keydown", (e) =>{
+        var operacoes = ["+","-","*","/"]
+        for(i=0;i<10;i++)
+        {
+            if(e.key == i) {addNum(Number(e.key))}
+        }
+        for(i=0;i<5;i++)
+        {
+            if(e.key == operacoes[i]) {realizeOp(operacoes[i])}
+        }
+        if(e.key == "="||e.key == "Enter"){ finish() }
+        if(e.key == "Delete"||e.key == "Backspace"){ clearValues() }
+        
+})
 </script>
