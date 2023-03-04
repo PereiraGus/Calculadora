@@ -5,30 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input id="iptDisplay" type="text" value="0">
-    <br>
-    <button onclick="addNum(9)">9</button>
-    <button onclick="addNum(8)">8</button>
-    <button onclick="addNum(7)">7</button>
-    <button onclick="realizeOp('+')">+</button>
-    <button onclick="finish('rad')">√</button>
-    <br>
-    <button onclick="addNum(6)">6</button>
-    <button onclick="addNum(5)">5</button>
-    <button onclick="addNum(4)">4</button>
-    <button onclick="realizeOp('-')">-</button>
-    <br>
-    <button onclick="addNum(3)">3</button>
-    <button onclick="addNum(2)">2</button>
-    <button onclick="addNum(1)">1</button>
-    <button onclick="realizeOp('*')">×</button>
-    <br>
-    <button onclick="addNum(0)">0</button>
-    <button onclick="clearValues()">C</button>
-    <button onclick="finish()">=</button>
-    <button onclick="realizeOp('/')">÷</button>
+    <div id="calculator" class="light">
+        <input id="iptDisplay" class="light" type="text" value="0" disabled>
+        <div id="numbers" class="numbers">
+            <div class="row">
+                <button class="leftKeys topKeys" onclick="addNum(9)">9</button>
+                <button class="topKeys" onclick="addNum(8)">8</button>
+                <button class="topKeys" onclick="addNum(7)">7</button>
+                <button class="rightKeys topKeys" onclick="realizeOp('+')">+</button>
+            </div>
+            <div class="row">
+                <button class="leftKeys" onclick="addNum(6)">6</button>
+                <button onclick="addNum(5)">5</button>
+                <button onclick="addNum(4)">4</button>
+                <button class="rightKeys" onclick="realizeOp('-')">-</button>
+            </div>
+            <div class="row">
+                <button class="leftKeys" onclick="addNum(3)">3</button>
+                <button onclick="addNum(2)">2</button>
+                <button onclick="addNum(1)">1</button>
+                <button class="rightKeys " onclick="realizeOp('*')">×</button>
+            </div>
+            <div class="row" id="lastRow">
+                <button class="leftKeys bottomKeys" onclick="addNum(0)">0</button>
+                <button class="bottomKeys" onclick="clearValues()">C</button>
+                <button class="bottomKeys" onclick="finish()">=</button>
+                <button class="rightKeys bottomKeys" onclick="realizeOp('/')">÷</button>
+            </div>
+        </div>
+    </div>
+    <div class="themeSelector">
+        <p>Selecionar tema:</p>
+        <div>
+            <input type="radio" id="iptClaro" name="iptTema" value="c" checked onclick="mudarTema()">
+            <label for="iptClaro">Claro</label>
+        </div>
+        <div>
+            <input type="radio" id="iptEscuro" name="iptTema" value="e" onclick="mudarTema()">
+            <label for="iptEscuro">Escuro</label>
+        </div>
+        <div>
+            <input type="radio" id="iptConway" name="iptTema" value="e" onclick="mudarTema()">
+            <label for="iptEscuro">Conway</label>
+        </div>
+    </div>
 </body>
 </html>
 <script>
@@ -48,7 +71,6 @@
         }
     }
     function realizeOp(operator){
-        fNum = iptDisplay.value;
         operation = operator;
         iptDisplay.value = '';
         firstOrSecond = true;
@@ -72,7 +94,6 @@
                 break;
         }
         fNum = result;
-        firstOrSecond = true;
         iptDisplay.value = result;
     }
     function clearValues(){
@@ -90,5 +111,18 @@
         console.log("Qual número está sendo selecionado (f=1º,t=2º): "+firstOrSecond)
         console.log("Operação sendo realizada: "+operation);
         console.log("Resultado: "+result);
+    }
+
+    function mudarTema(){
+        btns = document.getElementsByTagName("button");
+        if(iptClaro.checked){
+            calculator.className = ('light');
+        }
+        if(iptEscuro.checked){
+            calculator.className = ('dark');
+        }
+        if(iptConway.checked){
+            calculator.className = ('conway');
+        }
     }
 </script>

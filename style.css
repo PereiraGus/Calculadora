@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+#calculator{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px 20px 0px 0px;
+}
+.light{
+    background-color: #F0F0F0;
+    color: black;
+}
+.light button:hover{
+    background-color: #e0e0e0 !important;
+}
+.dark {
+    background-color: rgb(53, 53, 53);
+    color: #F0F0F0;
+}
+.dark button:hover{
+    background-color: #454444 !important;
+}
+.conway{
+    background-color: #bcab94;
+    color: #0a0807;
+    border-color: #c41e1e;
+}
+.conway button:hover{
+    background-color: #c41e1e37 !important;
+}
+#calculator button{
+    border: none;
+    height: 100px;
+    width: 100%;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: inherit;
+    color: inherit;
+}
+#calculator input{
+    font-size: 30px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: inherit;
+    color: inherit;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.numbers{
+    background-color: inherit;
+}
+.leftKeys{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.rightKeys{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.topKeys{
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+.bottomKeys{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.themeSelector{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
