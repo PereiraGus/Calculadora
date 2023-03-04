@@ -15,25 +15,28 @@
                 <button class="leftKeys topKeys" onclick="addNum(9)">9</button>
                 <button class="topKeys" onclick="addNum(8)">8</button>
                 <button class="topKeys" onclick="addNum(7)">7</button>
-                <button class="rightKeys topKeys" onclick="realizeOp('+')">+</button>
+                <button class="topKeys" onclick="realizeOp('+')">+</button>
+                <button class="rightKeys topKeys"" onclick="realizeOp('/')">÷</button>
             </div>
             <div class="row">
                 <button class="leftKeys" onclick="addNum(6)">6</button>
                 <button onclick="addNum(5)">5</button>
                 <button onclick="addNum(4)">4</button>
-                <button class="rightKeys" onclick="realizeOp('-')">-</button>
+                <button onclick="realizeOp('-')">-</button>
+                <button class="rightKeys" onclick="oneNumberOp('root')">√</button>
             </div>
             <div class="row">
                 <button class="leftKeys" onclick="addNum(3)">3</button>
                 <button onclick="addNum(2)">2</button>
                 <button onclick="addNum(1)">1</button>
-                <button class="rightKeys " onclick="realizeOp('*')">×</button>
+                <button onclick="realizeOp('*')">×</button>
+                <button class="rightKeys " onclick="oneNumberOp('square')">x²</button>
             </div>
             <div class="row" id="lastRow">
                 <button class="leftKeys bottomKeys" onclick="addNum(0)">0</button>
+                <button id="equal" class="bottomKeys" onclick="finish()">=</button>
                 <button class="bottomKeys" onclick="clearValues()">C</button>
-                <button class="bottomKeys" onclick="finish()">=</button>
-                <button class="rightKeys bottomKeys" onclick="realizeOp('/')">÷</button>
+                <button class="rightKeys bottomKeys" onclick="realizeOp('**')">xʸ</button>
             </div>
         </div>
     </div>
@@ -92,13 +95,15 @@
             case '/':
                 product = num1/num2;
                 break;
+            case '**':
+                product = num1**num2;
+                break;
             default:
                 clearValues();
                 break;
         }
         return product;
     }
-    
     function finish(){
         if(operation != ""){
             result = doMath(Number(fNum),Number(sNum),operation)
@@ -112,6 +117,23 @@
         sNum = "";
         operation = "";
         iptDisplay.value = result;
+    }
+    function oneNumberOp(funcType){
+        base = Number(iptDisplay.value);
+        switch (funcType) {
+            case 'root':
+                funcResult = Math.sqrt(base);
+                break;
+            case 'square':
+                funcResult = (base**2);
+                break;
+            default:
+                clearValues()
+                break;
+        }
+        clearValues();
+        iptDisplay.value = funcResult;
+        fNum = funcResult;
     }
     function clearValues(){
         firstOrSecond = false;
