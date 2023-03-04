@@ -8,53 +8,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="calculator" class="light">
-        <input id="iptDisplay" class="light" type="text" value="0" disabled>
-        <div id="numbers" class="numbers">
-            <div class="row">
-                <button class="leftKeys topKeys" onclick="addNum(9)">9</button>
-                <button class="topKeys" onclick="addNum(8)">8</button>
-                <button class="topKeys" onclick="addNum(7)">7</button>
-                <button class="topKeys" onclick="realizeOp('+')">+</button>
-                <button class="rightKeys topKeys"" onclick="realizeOp('/')">÷</button>
+    <div class="main">
+        <div id="calculator" class="light">
+            <input id="iptDisplay" class="light" type="text" value="0" disabled>
+            <div id="numbers" class="numbers">
+                <div class="row">
+                    <button class="leftKeys topKeys" onclick="addNum(9)">9</button>
+                    <button class="topKeys" onclick="addNum(8)">8</button>
+                    <button class="topKeys" onclick="addNum(7)">7</button>
+                    <button class="topKeys" onclick="realizeOp('+')">+</button>
+                    <button class="rightKeys topKeys"" onclick="realizeOp('/')">÷</button>
+                </div>
+                <div class="row">
+                    <button class="leftKeys" onclick="addNum(6)">6</button>
+                    <button onclick="addNum(5)">5</button>
+                    <button onclick="addNum(4)">4</button>
+                    <button onclick="realizeOp('-')">-</button>
+                    <button class="rightKeys" onclick="oneNumberOp('root')">√</button>
+                </div>
+                <div class="row">
+                    <button class="leftKeys" onclick="addNum(3)">3</button>
+                    <button onclick="addNum(2)">2</button>
+                    <button onclick="addNum(1)">1</button>
+                    <button onclick="realizeOp('*')">×</button>
+                    <button class="rightKeys " onclick="oneNumberOp('square')">x²</button>
+                </div>
+                <div class="row" id="lastRow">
+                    <button class="leftKeys bottomKeys" onclick="addNum(0)">0</button>
+                    <button id="equal" class="bottomKeys" onclick="finish()">=</button>
+                    <button class="bottomKeys" onclick="clearValues()">C</button>
+                    <button class="rightKeys bottomKeys" onclick="realizeOp('**')">xʸ</button>
+                </div>
             </div>
-            <div class="row">
-                <button class="leftKeys" onclick="addNum(6)">6</button>
-                <button onclick="addNum(5)">5</button>
-                <button onclick="addNum(4)">4</button>
-                <button onclick="realizeOp('-')">-</button>
-                <button class="rightKeys" onclick="oneNumberOp('root')">√</button>
+        </div>
+        <div class="themeSelector">
+            <p>Selecionar tema:</p>
+            <div>
+                <input type="radio" id="iptClaro" name="iptTema" value="c" checked onclick="mudarTema()">
+                <label for="iptClaro">Claro</label>
             </div>
-            <div class="row">
-                <button class="leftKeys" onclick="addNum(3)">3</button>
-                <button onclick="addNum(2)">2</button>
-                <button onclick="addNum(1)">1</button>
-                <button onclick="realizeOp('*')">×</button>
-                <button class="rightKeys " onclick="oneNumberOp('square')">x²</button>
+            <div>
+                <input type="radio" id="iptEscuro" name="iptTema" value="e" onclick="mudarTema()">
+                <label for="iptEscuro">Escuro</label>
             </div>
-            <div class="row" id="lastRow">
-                <button class="leftKeys bottomKeys" onclick="addNum(0)">0</button>
-                <button id="equal" class="bottomKeys" onclick="finish()">=</button>
-                <button class="bottomKeys" onclick="clearValues()">C</button>
-                <button class="rightKeys bottomKeys" onclick="realizeOp('**')">xʸ</button>
+            <div>
+                <input type="radio" id="iptConway" name="iptTema" value="e" onclick="mudarTema()">
+                <label for="iptEscuro">Conway</label>
             </div>
         </div>
     </div>
-    <div class="themeSelector">
-        <p>Selecionar tema:</p>
-        <div>
-            <input type="radio" id="iptClaro" name="iptTema" value="c" checked onclick="mudarTema()">
-            <label for="iptClaro">Claro</label>
-        </div>
-        <div>
-            <input type="radio" id="iptEscuro" name="iptTema" value="e" onclick="mudarTema()">
-            <label for="iptEscuro">Escuro</label>
-        </div>
-        <div>
-            <input type="radio" id="iptConway" name="iptTema" value="e" onclick="mudarTema()">
-            <label for="iptEscuro">Conway</label>
-        </div>
-    </div>
+    <footer>
+        <p>
+        <img crossorigin="anonymous" class="flag" src="https://countryflagsapi.com/png/brazil">
+        Código desenvolvido por Gustavo P. Castro, calouro de Ciência da Computação da São Paulo Tech School. Todos os direitos reservados, março de 2023<br>
+        <img crossorigin="anonymous" class="flag" src="https://countryflagsapi.com/png/gb" alt="English: "/>
+        Code developed by Gustavo P. Castro, Computing Science freshman at São Paulo Tech School. All rights reserved, march 2023
+        </p>
+        <p>
+            <a target="_blank" href="https://github.com/PereiraGus">GitHub</a>
+            <a target="_blank" href="https://www.linkedin.com/in/guspcastro/">Linkedin</a>
+        </p>
+    </footer>
 </body>
 </html>
 <script>

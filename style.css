@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body{
+    font-family: 'Roboto', sans-serif;
+}
+.main{
     display: flex;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
 }
 #calculator{
     display: flex;
@@ -82,4 +84,7 @@ body{
 }
 #equal{
     width: 180% !important;
+}
+.flag{
+    height: 12px;
 }
