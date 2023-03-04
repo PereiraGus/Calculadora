@@ -75,25 +75,40 @@
         iptDisplay.value = '';
         firstOrSecond = true;
     }
-    function finish(){
-        switch(operation){
+    function doMath(num1,num2,symbol)
+    {
+        switch(symbol){
             case '+':
-                result = Number(fNum)+Number(sNum);
+                product = num1+num2;
                 break;
             case '-':
-                result = Number(fNum)-Number(sNum);
+                product = num1-num2;
                 break;
             case '*':
-                result = Number(fNum)*Number(sNum);
+                product = num1*num2;
                 break;
             case '/':
-                result = Number(fNum)/Number(sNum);
+                product = num1/num2;
                 break;
             default:
                 clearValues();
                 break;
         }
+        return product;
+    }
+    
+    function finish(){
+        if(operation != ""){
+            result = doMath(Number(fNum),Number(sNum),operation)
+            copySNum = sNum;
+            copyOperation = operation;
+        }
+        else{
+            result = doMath(Number(fNum),Number(copySNum),copyOperation)
+        }
         fNum = result;
+        sNum = "";
+        operation = "";
         iptDisplay.value = result;
     }
     function clearValues(){
