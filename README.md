@@ -1,4 +1,4 @@
-# Protótipo de Calculadora Financeira (<a href='https://codepen.io/PereiraGus/pen/BaOZLpq'>Teste aqui!</a>)
+# Protótipo de Calculadora (<a href='https://codepen.io/PereiraGus/pen/BaOZLpq'>Teste aqui!</a>)
 ### Calculadora desenvolvimenta em HTML, CSS e JS puros.
 Funções: Soma, subtração, multiplicação, divisão, exponenciação, exponenciação ao quadrado e raiz quadrada.
 ### Recursos visuais
